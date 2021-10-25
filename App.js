@@ -1,38 +1,24 @@
-import React from 'react'
-import { Appearance, SafeAreaView, Text } from 'react-native'
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
+import React, {useState} from 'react'
+import { Button, Pressable, SafeAreaView, StyleSheet, Text } from 'react-native'
 import Home from './src/Home'
 
 export default () => {
     return(
-        <PaperProvider theme={colorTheme == 'dark' ? dark : theme}>
+        <SafeAreaView style={style.container}>
             <Home/>
-        </PaperProvider>
+        </SafeAreaView>
     )
 }
 
-const colorTheme = Appearance.getColorScheme()
-
-const theme = {
-    ...DefaultTheme,
-    roundness: 2,
-    colors:{
-        ...DefaultTheme.colors,
-        background: '#fff',
-        primary: '#131313',
-        accent: '#ffd900',
-        danger: '#ed1c24'
+const style = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#871',
+        alignItems:'center',
+        justifyContent: 'center'
+    },
+    TextoGrande: {
+        fontSize: 24,
+        color: '#527'
     }
-}
-
-const dark = {
-    ...DefaultTheme,
-    roundness: 2,
-    colors:{
-        ...DefaultTheme.colors,
-        background: '#131313',
-        primary: '#fff',
-        accent: '#ffd900',
-        danger: '#ed1c24'
-    }
-}
+})
