@@ -1,19 +1,24 @@
 import React, {useState} from 'react'
 import { Button, Pressable, SafeAreaView, StyleSheet, Text } from 'react-native'
+import {QueryClient, QueryClientProvider} from 'react-query'
 import Home from './src/Home'
+
+const queryClient = new QueryClient()
 
 export default () => {
     return(
-        <SafeAreaView style={style.container}>
-            <Home/>
-        </SafeAreaView>
+        <QueryClientProvider client={queryClient}>
+            <SafeAreaView style={style.container}>
+                <Home/>
+            </SafeAreaView>
+        </QueryClientProvider>
     )
 }
 
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#871',
+        backgroundColor: '#fff',
         alignItems:'center',
         justifyContent: 'center'
     },
